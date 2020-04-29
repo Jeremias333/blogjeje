@@ -1,0 +1,31 @@
+{{#if user}}
+
+{{else}}
+<div class="jumbotron">
+  <h1 class="display-4">Bem Vindos ao nosso blog!</h1>
+  <p class="lead">Um blog totalmente voltado para o usuário, venha ler nossas postagens, tenho certeza que vamos lhe encantar <3</p>
+  <hr class="my-4">
+  <p>Crie sua conta agora e faça parte dos mais de <b>12.837.192.783.192,87</b> de pessoas que criaram conta em nosso site.</p>
+  <a class="btn btn-primary btn-lg" href="/user/registro" role="button">Crie uma conta já!</a>
+</div>
+{{/if}}
+<h2>Postagens Recentes:</h2>
+
+{{#each postagens}}
+<div class="card mt-4">
+	<div class="card-body">
+		<h4>{{titulo}}</h4>
+		<p class="mt-4">{{descricao}}</p>
+		<a href="/postagem/{{slug}}" class="btn btn-success">Leia mais...</a>
+		<hr>
+		<small>Categoria: {{categoria.nome}}</small><br>
+		<small>Data da Publicação: </small>
+		<small class="data date-{{id}}"></small>
+		<script>
+    		document.querySelector('.date-{{id}}').innerHTML = new Date('{{data}}').toLocaleDateString();
+		</script>
+	</div>
+</div>
+{{else}}
+	<h5>Nenhuma postagem!</h5>
+{{/each}}

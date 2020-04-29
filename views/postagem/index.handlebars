@@ -1,0 +1,14 @@
+<div class="card">
+	<small class=""></small>
+
+	<div class="card-body">
+		<h1>{{postagem.titulo}}</h1>
+		<small>Data de publicação:</small>
+		<small class="data date-{{postagem.id}}"></small>
+		<script>
+    		document.querySelector('.date-{{postagem.id}}').innerHTML = new Date('{{postagem.data}}').toLocaleDateString();
+		</script>
+		<hr>
+		<p>{{postagem.conteudo}}</p>
+	</div>
+</div>

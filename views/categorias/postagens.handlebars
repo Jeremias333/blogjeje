@@ -1,0 +1,20 @@
+<h3>{{categorias.nome}}</h3>
+
+{{#each postagens}}
+<div class="card mt-4">
+	<div class="card-body">
+		<h4>{{titulo}}</h4>
+		<p class="mt-4">{{descricao}}</p>
+		<a href="/postagem/{{slug}}" class="btn btn-success">Leia mais...</a>
+		<hr>
+		<small>Data da Publicação: </small>
+		<small class="data date-{{id}}"></small>
+		<script>
+    		document.querySelector('.date-{{id}}').innerHTML = new Date('{{data}}').toLocaleDateString();
+		</script>
+	</div>
+</div>
+{{else}}
+	<h5>Nenhuma postagem!</h5>
+{{/each}}
+
